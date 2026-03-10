@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Argyns — Family Registry</title>
+    <title>ARGYNS — Family Registry</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -40,11 +41,11 @@
         }
 
         .app-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 24px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            width: 156px;
+            height: 156px;
+            border-radius: 32px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            margin-bottom: 5px;
         }
 
         .screenshots {
@@ -61,27 +62,134 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .download-btn {
-            display: inline-block;
-            background-color: #0071e3;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 17px;
-            margin-top: 20px;
+        .store-section {
+            background-color: #fff;
+            padding: 40px 20px;
+            border-radius: 24px;
+            margin: 40px 0;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
         }
 
-        footer {
-            margin-top: 60px;
-            font-size: 12px;
+        .store-links {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .store-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .store-item:hover {
+            transform: scale(1.02);
+        }
+
+        .store-badge {
+            height: 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .store-item .text-group {
+            text-align: left;
+        }
+
+        .store-item .label {
+            display: block;
+            font-size: 14px;
+            color: #86868b;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .store-item .action {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0071e3;
+        }
+
+        .store-item.soon {
+            filter: grayscale(1);
+            opacity: 0.6;
+            cursor: default;
+            position: relative;
+        }
+
+        .store-item.soon .text-group {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .store-item.soon:hover .text-group {
+            opacity: 1;
+        }
+
+        .store-item.soon .action {
             color: #86868b;
         }
 
-        footer a {
-            color: #0071e3;
-            text-decoration: none;
-            margin: 0 10px;
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 600px) {
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-links span {
+                display: none;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .app-branding h3 {
+                font-size: 40px;
+            }
+
+            .store-links {
+                flex-direction: column;
+                gap: 40px;
+                align-items: center;
+            }
+
+            .store-item {
+                flex-direction: column;
+                width: auto;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .store-item .text-group {
+                text-align: center;
+                opacity: 1 !important;
+            }
+
+            .store-item .label,
+            .store-item .action {
+                display: inline;
+                font-size: 15px;
+            }
+
+            .store-item .label::after {
+                content: " ";
+            }
+
+            .copyright span {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -89,32 +197,54 @@
 <body>
 
     <header>
-        <img src="images/app_icon_opaque.png" alt="Argyns Icon" class="app-icon">
-        <h1>Argyns</h1>
-        <p>Современный цифровой реестр 12 родов Аргын</p>
+        <img src="images/app_icon_opaque.png" alt="ARGYNS Icon" class="app-icon">
+        <h1>ARGYNS</h1>
+        <p>Argyn tajpasynyn’ 12&nbsp;ruynyn’ zamanauly cifrlyq tizilimi.</p>
+        <p>Современный цифровой реестр 12&nbsp;родов племени Аргын.</p>
     </header>
 
     <div class="container">
         <p>
-            Приложение создано для объединения потомков, сохранения истории и укрепления связи поколений.
-            Узнайте общее количество зарегистрированных представителей племени Аргын и контролируйте численность вашего
-            рода.
+            Qosymsha urpaqtardy biriktiru, tarihty saqtau ja’ne býyndar arasyn’dag’y bailanysty n’aj’aitu ýshin
+            jasalgan’ . Argyn tajpasynyn’ tirkelgen’ o’kilderinin’ jalpy sanyn bilin’iz ja’ne o’z ruyn’yzdyn’ sanyn
+            baqylan’yz.
         </p>
-
-        <a href="#" class="download-btn">Скоро в App Store</a>
+        <p>
+            Приложение создано для объединения потомков, сохранения истории и укрепления связи поколений. Узнайте общее
+            количество зарегистрированных представителей племени Аргын и контролируйте численность вашего рода.
+        </p>
+        <div class="store-section">
+            <div class="store-links">
+                <a href="https://apps.apple.com/us/app/argyns/id6759314097" class="store-item">
+                    <img src="images/apple_logo.svg" alt="App Store" class="store-badge">
+                    <div class="text-group">
+                        <span class="label">Скачать в</span>
+                        <span class="action">App Store</span>
+                    </div>
+                </a>
+                <div class="store-item soon">
+                    <img src="images/play_logo.png" alt="Coming Soon" class="store-badge">
+                    <div class="text-group">
+                        <span class="label">Скоро в</span>
+                        <span class="action">Google Play</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="screenshots">
-            <img src="images/screen1.png" class="screenshot" alt="Screen 1">
             <img src="images/screen2.png" class="screenshot" alt="Screen 2">
+            <img src="images/screen1.png" class="screenshot" alt="Screen 1">
             <img src="images/screen3.png" class="screenshot" alt="Screen 3">
         </div>
 
         <footer>
-            <p>&copy; 2026 Argyns. Все права защищены.</p>
-            <p>
-                <a href="privacy_policy.html">Политика конфиденциальности</a> |
+            <p class="copyright">&copy; 2026 ARGYNS. <span>Все права защищены.</span></p>
+            <div class="footer-links">
+                <a href="privacy_policy.html">Политика конфиденциальности</a>
+                <span>|</span>
                 <a href="support.html">Поддержка (Support)</a>
-            </p>
+            </div>
         </footer>
     </div>
 
