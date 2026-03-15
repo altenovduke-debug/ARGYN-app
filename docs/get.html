@@ -11,15 +11,17 @@
             var playStoreUrl = "https://play.google.com/store/apps/details?id=com.argyn.app";
             var homeUrl = "index.html";
 
-            // iOS detection
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.replace(appStoreUrl);
+            // iOS detection (including iPadOS 13+)
+            var isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            
+            if (isIOS && !window.MSStream) {
+                window.location.href = appStoreUrl;
                 return;
             }
 
             // Android detection
             if (/android/i.test(userAgent)) {
-                window.location.replace(playStoreUrl);
+                window.location.href = playStoreUrl;
                 return;
             }
 
