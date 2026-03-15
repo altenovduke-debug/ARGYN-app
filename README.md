@@ -10,7 +10,7 @@
 Вы можете скачать приложение Argyns по ссылкам ниже:
 
 *   **iOS (App Store)**: [Скачать в App Store](https://apps.apple.com/us/app/argyns/id6759314097)
-*   **Android (Google Play)**: Скоро в Google Play.
+*   **Android (Google Play)**: [Скачать в Google Play](https://play.google.com/store/apps/details?id=com.argyn.app)
 
 ---
 
