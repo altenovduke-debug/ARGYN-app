@@ -53,13 +53,23 @@
             overflow-x: auto;
             gap: 20px;
             padding: 40px 0;
-            justify-content: center;
+            justify-content: flex-start;
+            scroll-snap-type: x proximity;
+            -webkit-overflow-scrolling: touch;
         }
 
         .screenshot {
             width: 200px;
+            flex: 0 0 auto;
+            scroll-snap-align: center;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (min-width: 901px) {
+            .screenshots {
+                justify-content: center;
+            }
         }
 
         .store-section {
@@ -233,9 +243,9 @@
         </div>
 
         <div class="screenshots">
-            <img src="images/screen2.png" class="screenshot" alt="Screen 2">
-            <img src="images/screen1.png" class="screenshot" alt="Screen 1">
-            <img src="images/screen3.png" class="screenshot" alt="Screen 3">
+            <img src="images/screen2.png" class="screenshot" alt="Шежіре пользователя ARGYNS" loading="lazy">
+            <img src="images/screen4.png" class="screenshot" alt="Экран запуска ARGYNS" loading="lazy">
+            <img src="images/screen3.png" class="screenshot" alt="Подтверждённый профиль ARGYNS" loading="lazy">
         </div>
 
         <footer>
