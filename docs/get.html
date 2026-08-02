@@ -110,11 +110,6 @@
             margin-top: var(--space-small);
         }
 
-        .help-text {
-            margin-top: var(--space-medium);
-            font-size: 14px;
-        }
-
         @keyframes spin {
             to {
                 transform: rotate(360deg);
@@ -141,9 +136,6 @@
             <a id="playStoreLink" class="store-link" href="https://play.google.com/store/apps/details?id=com.argyn.app">
                 Открыть в Google Play
             </a>
-            <p id="helpText" class="help-text">
-                Если магазин не открылся, нажмите меню браузера и выберите «Открыть во внешнем браузере».
-            </p>
         </div>
 
         <noscript>
@@ -170,7 +162,33 @@
             var actionMessage = document.getElementById("actionMessage");
             var appStoreLink = document.getElementById("appStoreLink");
             var playStoreLink = document.getElementById("playStoreLink");
-            var helpText = document.getElementById("helpText");
+
+            function openStore(event, nativeUrl, webUrl) {
+                event.preventDefault();
+                window.location.href = nativeUrl;
+
+                window.setTimeout(function () {
+                    if (!document.hidden) {
+                        window.location.href = webUrl;
+                    }
+                }, 900);
+            }
+
+            appStoreLink.addEventListener("click", function (event) {
+                openStore(
+                    event,
+                    "itms-apps://itunes.apple.com/app/id6759314097",
+                    appStoreUrl
+                );
+            });
+
+            playStoreLink.addEventListener("click", function (event) {
+                openStore(
+                    event,
+                    "market://details?id=com.argyn.app",
+                    playStoreUrl
+                );
+            });
 
             function showActions(isEmbeddedBrowser) {
                 loadingState.hidden = true;
@@ -187,8 +205,6 @@
 
                 if (isEmbeddedBrowser) {
                     actionMessage.textContent = "Нажмите кнопку, чтобы открыть магазин приложений.";
-                } else {
-                    helpText.hidden = true;
                 }
             }
 
