@@ -182,6 +182,10 @@
             }
 
             if (isInstagramBrowser) {
+                appStoreLink.target = "_blank";
+                appStoreLink.rel = "noopener noreferrer";
+                playStoreLink.target = "_blank";
+                playStoreLink.rel = "noopener noreferrer";
                 showActions(true);
                 return;
             }
