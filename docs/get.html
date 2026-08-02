@@ -130,7 +130,7 @@
 
         <div id="actions" class="actions">
             <p id="actionMessage">Нажмите кнопку, чтобы открыть магазин приложений.</p>
-            <a id="appStoreLink" class="store-link" href="https://apps.apple.com/us/app/argyns/id6759314097">
+            <a id="appStoreLink" class="store-link" href="https://apps.apple.com/app/id6759314097">
                 Открыть в App Store
             </a>
             <a id="playStoreLink" class="store-link" href="https://play.google.com/store/apps/details?id=com.argyn.app">
@@ -141,7 +141,7 @@
         <noscript>
             <div class="actions visible">
                 <p>Выберите магазин приложений:</p>
-                <a class="store-link visible" href="https://apps.apple.com/us/app/argyns/id6759314097">Открыть в App Store</a>
+                <a class="store-link visible" href="https://apps.apple.com/app/id6759314097">Открыть в App Store</a>
                 <a class="store-link visible" href="https://play.google.com/store/apps/details?id=com.argyn.app">Открыть в Google Play</a>
             </div>
         </noscript>
@@ -149,7 +149,7 @@
 
     <script>
         (function () {
-            var appStoreUrl = "https://apps.apple.com/us/app/argyns/id6759314097";
+            var appStoreUrl = "https://apps.apple.com/app/id6759314097";
             var playStoreUrl = "https://play.google.com/store/apps/details?id=com.argyn.app";
             var userAgent = navigator.userAgent || navigator.vendor || "";
             var isIOS = /iPad|iPhone|iPod/i.test(userAgent) ||
@@ -162,33 +162,6 @@
             var actionMessage = document.getElementById("actionMessage");
             var appStoreLink = document.getElementById("appStoreLink");
             var playStoreLink = document.getElementById("playStoreLink");
-
-            function openStore(event, nativeUrl, webUrl) {
-                event.preventDefault();
-                window.location.href = nativeUrl;
-
-                window.setTimeout(function () {
-                    if (!document.hidden) {
-                        window.location.href = webUrl;
-                    }
-                }, 900);
-            }
-
-            appStoreLink.addEventListener("click", function (event) {
-                openStore(
-                    event,
-                    "itms-apps://itunes.apple.com/app/id6759314097",
-                    appStoreUrl
-                );
-            });
-
-            playStoreLink.addEventListener("click", function (event) {
-                openStore(
-                    event,
-                    "market://details?id=com.argyn.app",
-                    playStoreUrl
-                );
-            });
 
             function showActions(isEmbeddedBrowser) {
                 loadingState.hidden = true;
