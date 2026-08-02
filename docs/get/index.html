@@ -77,7 +77,7 @@
         }
 
         .store-link {
-            display: block;
+            display: none;
             width: 100%;
             padding: 15px var(--space-medium);
             border-radius: var(--radius-button);
@@ -88,12 +88,16 @@
             text-decoration: none;
         }
 
+        .store-link.visible {
+            display: block;
+        }
+
         .store-link:hover,
         .store-link:focus-visible {
             background: var(--color-primary-hover);
         }
 
-        .store-link + .store-link {
+        .store-link.visible + .store-link.visible {
             margin-top: var(--space-small);
         }
     </style>
@@ -103,14 +107,49 @@
     <main class="card">
         <img src="../images/app_icon_opaque.png" alt="ARGYNS" class="app-icon">
         <h1>Скачать ARGYNS</h1>
-        <p>Нажмите кнопку, чтобы открыть магазин приложений.</p>
-        <a class="store-link" href="https://apps.apple.com/app/id6759314097">
+        <p id="statusMessage">Нажмите кнопку, чтобы открыть магазин приложений.</p>
+        <a id="appStoreLink" class="store-link" href="https://apps.apple.com/app/id6759314097">
             Открыть в App Store
         </a>
-        <a class="store-link" href="https://play.google.com/store/apps/details?id=com.argyn.app">
+        <a id="playStoreLink" class="store-link" href="https://play.google.com/store/apps/details?id=com.argyn.app">
             Открыть в Google Play
         </a>
+        <noscript>
+            <style>
+                .store-link {
+                    display: block;
+                }
+            </style>
+        </noscript>
     </main>
+
+    <script>
+        (function () {
+            var userAgent = navigator.userAgent || navigator.vendor || "";
+            var isIOS = /iPad|iPhone|iPod/i.test(userAgent) ||
+                (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+            var isAndroid = /android/i.test(userAgent);
+            var storeUrl = null;
+            var appStoreLink = document.getElementById("appStoreLink");
+            var playStoreLink = document.getElementById("playStoreLink");
+
+            if (isIOS) {
+                appStoreLink.classList.add("visible");
+                storeUrl = "https://apps.apple.com/app/id6759314097";
+            } else if (isAndroid) {
+                playStoreLink.classList.add("visible");
+                storeUrl = "https://play.google.com/store/apps/details?id=com.argyn.app";
+            } else {
+                storeUrl = "https://argyns.kz/";
+            }
+
+            if (storeUrl) {
+                document.getElementById("statusMessage").textContent =
+                    "Перенаправляем в магазин приложений...";
+                window.location.replace(storeUrl);
+            }
+        }());
+    </script>
 </body>
 
 </html>
